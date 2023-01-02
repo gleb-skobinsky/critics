@@ -1,0 +1,131 @@
+.header-logo {
+  display: block;
+  order: 1;
+  width: 60px;
+  height: 60px;
+  background-image: url(https://cdn-s-assets.arzamas.academy/assets/header/logo_short_white-cccd12406319bda76b203c7359c4c1d79746e802b87afe32df30d488f91bd93b.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
+  border-bottom: none !important;
+}
+
+.dark-bar {
+  background-color: black;
+}
+
+.cover-image {
+  border-radius: 7px;
+  height: 70vh;
+  object-fit: cover;
+  z-index: 0;
+  position: relative;
+  display: block;
+}
+
+.cover-title {
+  float: left;
+  position: absolute;
+  bottom: 30px;
+  z-index: 1000;
+  padding: 5px;
+  color: #ffffff;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.column {
+  position: relative;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cover-subtitle {
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 2s ease-out;
+  max-height: 1.5em;
+}
+
+.is-article-card:hover .cover-subtitle {
+  -webkit-line-clamp: 40;
+  max-height: 40em;
+}
+
+.pickgradient {
+  position: relative;
+  display: inline-block;
+}
+.pickgradient:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 7px;
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0.65)),
+    color-stop(100%, rgba(0, 0, 0, 0))
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  ); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+img {
+  display: block;
+  height: auto;
+  width: auto;
+}
+
+.article-content-wrapper {
+  margin-top: 5%;
+}
+
+.article-subtitle {
+  padding-top: 25px;
+}
+
+.main-article-body {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.main-article-image {
+  margin-top: 3rem;
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div class="is-fullheight">
+  <div class="column is-half is-offset-one-quarter article-content-wrapper">
+    <div class="has-text-centered">
+      <div class="title">{{ post.heading }}</div>
+      <div class="subtitle article-subtitle">{{ post.summary }}</div>
+      <div class="article-author">Автор: {{ post.user }}</div>
+      <img class="main-article-image" src="{{ post.cover_image.url }}" />
+    </div>
+
+    <div class="main-article-body">{{ post.full_content }}</div>
+  </div>
+</div>
+{% endblock %}

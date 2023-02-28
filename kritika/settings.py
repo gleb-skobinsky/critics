@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "kritika_main",
+    "widget_tweaks",
+    "ckeditor",
+    "ckeditor_uploader",
+    "social_django",
 ]
 
 MIDDLEWARE = [
@@ -47,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
 ROOT_URLCONF = "kritika.urls"
@@ -62,6 +67,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -128,6 +135,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "kritika_main.KritikaUser"
 
+# Authentication backends
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "social_core.backends.github.GithubOAuth2",
+    "social_core.backends.twitter.TwitterOAuth",
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.google.GoogleOAuth2",
+    "social_core.backends.vk.VKOAuth2",
+)
+
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -139,6 +157,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -150,6 +170,35 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+# STATIC_ROOT = "static"
+
 MEDIA_URL = "media/"
 
 MEDIA_ROOT = BASE_DIR / "media/"
+
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "basic",
+    },
+}
+
+CKEDITOR_UPLOAD_PATH = "post_images/"
+
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
+LOGIN_REDIRECT_URL = "/"
+
+SOCIAL_AUTH_GITHUB_KEY = "d9cfdbd8d58bcef0102e"
+SOCIAL_AUTH_GITHUB_SECRET = "f6943412b380c0c434d815ccf9327a45fc46a816"
+SOCIAL_AUTH_GITHUB_SCOPE = ["user:email"]
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = "51559790"
+SOCIAL_AUTH_VK_OAUTH2_SECRET = "QhrMzdJw0p2J5QYyhDVS"
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ["email"]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = (
+    "641472723896-7i68b5ne3nc9rcms13uo469pi7slpmg6.apps.googleusercontent.com"
+)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "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"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ["email"]

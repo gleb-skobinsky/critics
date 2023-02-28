@@ -1,0 +1,8 @@
+{% extends 'basev2.html' %} {% block content %} {% load static %}
+<div class="column">
+  {% for post in posts %}
+  <a href="/editor/{{ post.id }}">{{ post.heading }}</a>
+  <div></div>
+  {% endfor %}
+</div>
+{% endblock %}

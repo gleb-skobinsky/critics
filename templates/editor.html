@@ -1,0 +1,41 @@
+<div>
+  {% load static %}
+  <script
+    type="text/javascript"
+    src="{% static 'ckeditor/ckeditor-init.js' %}"
+  ></script>
+  <script
+    type="text/javascript"
+    src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"
+  ></script>
+  <div>Название:</div>
+  <div>{{ post.heading }}</div>
+  <form method="post" action="{% url 'edit_post' %}">
+    {% csrf_token %}
+    <br />
+    <div>{{ form.heading }}</div>
+    <br />
+    <div>{{ form.full_content }}</div>
+    <br />
+    <div>{{ form.status }}</div>
+    <br />
+    <div>{{ form.rating }}</div>
+    <br />
+    <div>{{ form.summary }}</div>
+    <br />
+    <div>{{ form.cover_image }}</div>
+    <br />
+    <div>{{ form.heading_image }}</div>
+    <br />
+    <div>{{ form.topic }}</div>
+    <input type="hidden" value="{{ post.pk }}" name="pk" />
+    <br />
+    <div class="submit-button-wrapper">
+      <input
+        type="submit"
+        class="button is-dark is-rounded is-medium"
+        value="Сохранить"
+      />
+    </div>
+  </form>
+</div>

@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpRequest
 from kritika_main.models import Post, Topic
-
-# Create your views here.
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect
+from kritika_main.custom_auth_form import CustomAuthForm
+from kritika_main.models import KritikaUser
+from kritika_main.edit_form import EditForm
 
 
 def get_posts_by_topic(topic_name: str):
@@ -11,10 +14,45 @@ def get_posts_by_topic(topic_name: str):
 
 
 def home(request: HttpRequest):
-    template_name = "home.html"
-    posts = Post.objects.filter(status="Published")
+    template_name = "homev2.html"
+    posts = Post.objects.filter(status="Published", is_main=False)
+    main_post = Post.objects.filter(is_main=True)[0]
+    form = CustomAuthForm()
+    if not main_post:
+        main_post = posts[0]
 
-    return render(request, template_name, {"posts": posts})
+    return render(
+        request, template_name, {"posts": posts, "main_post": main_post, "form": form}
+    )
+
+
+def user_account(request: HttpRequest):
+    if request.user is None:
+        return redirect("/")
+    else:
+        user_from_db = KritikaUser.objects.select_related("role").get(
+            pk=request.user.pk
+        )
+        return render(request, "user_account.html", {"user": user_from_db})
+
+
+def kritika_admin(request: HttpRequest):
+    template_name = "kritika_admin.html"
+    if request.user is None:
+        return redirect("/")
+    else:
+        user_from_db = KritikaUser.objects.select_related("role").get(
+            pk=request.user.pk
+        )
+        if user_from_db.role.role_name == "Client":
+            editable_posts = []
+            return render(request, template_name, {"posts": editable_posts})
+        elif user_from_db.role.role_name == "Moderator":
+            editable_posts = Post.objects.filter(user=request.user.pk)
+            return render(request, template_name, {"posts": editable_posts})
+        elif user_from_db.role.role_name == "Administrator":
+            editable_posts = Post.objects.all()
+            return render(request, template_name, {"posts": editable_posts})
 
 
 def article(request: HttpRequest, article_id: int):
@@ -40,3 +78,49 @@ def cinema_topic(request: HttpRequest):
 def theatre_topic(request: HttpRequest):
     posts = get_posts_by_topic("Театр")
     return render(request, "books.html", {"posts": posts})
+
+
+def games_topic(request: HttpRequest):
+    posts = get_posts_by_topic("Игры")
+    return render(request, "books.html", {"posts": posts})
+
+
+def exhibitions_topic(request: HttpRequest):
+    posts = get_posts_by_topic("Выставки")
+    return render(request, "books.html", {"posts": posts})
+
+
+def login_user(request: HttpRequest):
+    username = request.POST["username"]
+    password = request.POST["password"]
+    user = authenticate(request, email=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect("/")
+    else:
+        return redirect("/")
+
+
+def editor(request: HttpRequest, article_id: int):
+    post = Post.objects.select_related("user").get(pk=article_id)
+    form = EditForm(instance=post)
+    return render(request, "editor.html", {"post": post, "form": form})
+
+
+def edit_post(request: HttpRequest):
+    post = Post.objects.select_related("user").get(pk=request.POST.get("pk"))
+    form = EditForm(request.POST, instance=post)
+    if form.is_valid():
+        form.save()
+        return render(request, "editor.html", {"form": form, "post": post})
+    else:
+        return redirect("/kritika_admin/")
+
+
+def logout_user(request: HttpRequest):
+    logout(request)
+    return redirect("/")
+
+
+def manifest(request: HttpRequest):
+    return render(request, "manifest.html", {})

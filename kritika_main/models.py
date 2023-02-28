@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -13,17 +14,33 @@ class CustomUserManager(BaseUserManager):
     for authentication instead of usernames.
     """
 
-    def create_user(self, email, password, **extra_fields):
+    def _create_user(self, email, is_staff, is_superuser, password, **extra_fields):
         """
         Create and save a User with the given email and password.
         """
         if not email:
             raise ValueError(_("The Email must be set"))
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        role = Role.objects.get(role_name="Client")
+        user = self.model(
+            role=role,
+            email=email,
+            is_staff=is_staff,
+            is_superuser=is_superuser,
+            **extra_fields,
+        )
         user.set_password(password)
         user.save()
         return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        return self._create_user(
+            email=email,
+            password=password,
+            is_staff=False,
+            is_superuser=False,
+            **extra_fields,
+        )
 
     def create_superuser(self, email, password, **extra_fields):
         """
@@ -74,13 +91,25 @@ class KritikaUser(AbstractBaseUser, PermissionsMixin):
 
 class Post(models.Model):
     heading = models.CharField(max_length=250)
-    full_content = models.CharField(max_length=25000)
+    full_content = RichTextUploadingField()
     status = models.CharField(max_length=30)
     rating = models.IntegerField()
     summary = models.CharField(max_length=200)
     cover_image = models.ImageField(upload_to="posts")
+    heading_image = models.ImageField(
+        upload_to="headings", default="headings/default.jpg"
+    )
     user = models.ForeignKey(KritikaUser, on_delete=models.PROTECT)
     topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
+    is_main = models.BooleanField(default=False)
 
     def __str__(self):
         return self.heading
+
+
+class PostImage(models.Model):
+    image = models.ImageField(
+        upload_to="post_images", default="headings/default.jpg", blank=True
+    )
+    image_caption = models.CharField(max_length=300, default="", blank=True)
+    post = models.ForeignKey(Post, on_delete=models.PROTECT)

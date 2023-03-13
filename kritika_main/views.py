@@ -111,9 +111,11 @@ def edit_post(request: HttpRequest):
     post = Post.objects.select_related("user").get(pk=request.POST.get("pk"))
     form = EditForm(request.POST, instance=post)
     if form.is_valid():
+        print("Post form is valid")
         form.save()
         return render(request, "editor.html", {"form": form, "post": post})
     else:
+        print("Post form is invalid")
         return redirect("/kritika_admin/")
 
 

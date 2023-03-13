@@ -222,20 +222,102 @@
   </div>
 </div>
 <div class="main-account-wrapper">
-  {% if user.role.role_name == 'Administrator' %}
-  <a href="/kritika_admin/">Администрирование</a>
-  {% elif user.role.role_name == 'Moderator' %}
-  <a href="/kritika_admin/">Администрирование</a>
-  {% else %}
-  <div></div>
-  {% endif %}
-  <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <input
-      type="submit"
-      class="button is-dark is-rounded is-medium"
-      value="Выйти"
-    />
-  </form>
+  <div class="main-account">
+    {% if user.role.role_name == 'Administrator' %}
+    <a class="administrating" href="/kritika_admin/">Администрирование</a>
+    {% elif user.role.role_name == 'Moderator' %}
+    <a href="/kritika_admin/">Администрирование</a>
+    {% else %}
+    <div></div>
+    {% endif %}
+    <form method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <input
+        type="submit"
+        class="button is-dark is-rounded is-medium logout-button"
+        value="Выйти"
+      />
+    </form>
+  </div>
+</div>
+<div class="footer-wrapper">
+  <div>
+    <div class="footer-content">
+      <div class="columns">
+        <div class="column is-half">
+          <div class="critics-copyright">© Проект Критика</div>
+          <div class="critics-essential">
+            Цифровое издание критических статей о культурных событиях и не
+            только
+          </div>
+        </div>
+        <div class="column is-quarter">
+          <div
+            onclick="window.location.href = '/manifest/'"
+            class="sitemap-item"
+          >
+            О нас
+          </div>
+          <div class="sitemap-item" id="login-button-footer">Вход</div>
+          <div class="sitemap-item">Поиск</div>
+          <div class="sitemap-item">Языки</div>
+        </div>
+        <div class="column is-quarter">
+          <div class="social-media-footer">Мы в соцсетях:</div>
+          <div class="columns">
+            <div class="column">
+              <div
+                class="footer-sm-item"
+                onclick="window.location.href = 'https://vk.com'"
+              >
+                ВКонтакте
+              </div>
+              <div
+                class="footer-sm-item"
+                onclick="window.location.href = 'https://twitter.com'"
+              >
+                Twitter
+              </div>
+              <div
+                class="footer-sm-item"
+                onclick="window.location.href = 'https://facebook.com'"
+              >
+                Facebook
+              </div>
+            </div>
+            <div class="column">
+              <div
+                class="footer-sm-item"
+                onclick="window.location.href = 'https://t.me'"
+              >
+                Telegram
+              </div>
+              <div
+                class="footer-sm-item"
+                onclick="window.location.href = 'https://instagram.com'"
+              >
+                Instagram
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns footer-rubrics">
+      <a href="/cinema/" class="column is-ft-rubric">Кино</a>
+      <div class="column is-narrow is-ft-rubric">|</div>
+      <a href="/music/" class="column is-ft-rubric left-padded">Музыка</a>
+      <div class="column is-narrow is-ft-rubric">|</div>
+      <a href="/books/" class="column is-ft-rubric left-padded">Книги</a>
+      <div class="column is-narrow is-ft-rubric">|</div>
+      <a href="/theatre/" class="column is-ft-rubric left-padded">Театр</a>
+      <div class="column is-narrow is-ft-rubric">|</div>
+      <a href="/games/" class="column is-ft-rubric left-padded">Игры</a>
+      <div class="column is-narrow is-ft-rubric">|</div>
+      <a href="/exhibitions/" class="column is-ft-rubric left-padded"
+        >Выставки</a
+      >
+    </div>
+  </div>
 </div>
 {% endblock %}

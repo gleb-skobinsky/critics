@@ -124,3 +124,13 @@
 .main-article-image {
   margin-top: 3rem;
 }
+.main-account {
+  justify-self: center;
+  width: 1440px;
+}
+.main-account-wrapper {
+  display: grid;
+}
+.logout-button {
+  margin-top: 32px;
+}

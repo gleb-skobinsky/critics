@@ -337,6 +337,7 @@
   padding-bottom: 135px;
   display: flex;
   justify-content: center;
+  bottom: 0px;
 }
 .footer-content {
   width: 1135px;
@@ -387,6 +388,7 @@
   line-height: 30px;
   color: #ffffff;
   margin-bottom: 36px;
+  cursor: pointer;
 }
 .footer-rubrics {
   width: 865px;
@@ -402,6 +404,9 @@
   /* identical to box height */
 
   color: #ffffff;
+}
+.is-ft-rubric:hover {
+  color: white !important;
 }
 .left-padded {
   padding-left: 1.5rem;
@@ -464,8 +469,8 @@
 }
 .login-form {
   position: absolute;
+  visibility: visible;
   top: 20vh;
-  display: block;
   background-color: white;
   border-radius: 12px;
   padding-top: 24px;
@@ -475,11 +480,13 @@
   z-index: 100;
   min-width: 30vw;
   box-shadow: 0px 9px 30px rgba(128, 5, 153, 0.425);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
+  transition: visibility 0.5s, top 0.5s, opacity 0.5s linear;
 }
 .login-form.close {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  top: 30vh;
+  transition: visibility 0.5s, top 0.5s, opacity 0.5s linear;
 }
 .login-overlay {
   position: absolute;

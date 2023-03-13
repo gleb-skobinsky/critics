@@ -18,5 +18,5 @@ urlpatterns = [
     path("edit_post/", views.edit_post, name="edit_post"),
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("oauth/", include("social_django.urls", namespace="social")),
-    path("manifest/", views.manifest, name="edit_post"),
+    path("manifest/", views.manifest, name="manifest"),
 ]

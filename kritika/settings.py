@@ -175,7 +175,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# STATIC_ROOT = "static"
+STATIC_ROOT = "publicstatic"
 
 MEDIA_URL = "media/"
 

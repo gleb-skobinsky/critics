@@ -58,7 +58,7 @@ MIDDLEWARE = [
     "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
-ROOT_URLCONF = "kritika.urls"
+ROOT_URLCONF = "critics.urls"
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "kritika.wsgi.application"
+WSGI_APPLICATION = "critics.wsgi.application"
 
 
 # Database

@@ -130,6 +130,7 @@
 }
 .main-account-wrapper {
   display: grid;
+  min-height: 30vh;
 }
 .logout-button {
   margin-top: 32px;

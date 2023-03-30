@@ -16,10 +16,11 @@ def get_posts_by_topic(topic_name: str):
 def home(request: HttpRequest):
     template_name = "homev2.html"
     posts = Post.objects.filter(status="Published", is_main=False)
-    main_post = Post.objects.filter(is_main=True)[0]
+    try:
+        main_post = Post.objects.filter(is_main=True)[0]
+    except:
+        main_post = None
     form = CustomAuthForm()
-    if not main_post:
-        main_post = posts[0]
 
     return render(
         request, template_name, {"posts": posts, "main_post": main_post, "form": form}

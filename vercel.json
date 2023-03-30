@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "kritika/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "kritika/wsgi.py"
+    }
+  ]
+}

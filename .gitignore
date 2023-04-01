@@ -1,3 +1,4 @@
 .env
 .env-old
+.env-new
 staticfiles_build/

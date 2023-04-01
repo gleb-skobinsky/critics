@@ -1,3 +1,6 @@
+html {
+  min-width: 100vw !important;
+}
 .header-logo {
   display: block;
   order: 1;

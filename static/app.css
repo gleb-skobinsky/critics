@@ -138,3 +138,55 @@ html {
 .logout-button {
   margin-top: 32px;
 }
+.drawer {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.drawer a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.drawer a:hover {
+  color: #f1f1f1;
+}
+
+.drawer .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 650px) {
+  .drawer {
+    padding-top: 15px;
+  }
+  .drawer a {
+    font-size: 18px;
+  }
+}
+/*
+* {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}
+*/

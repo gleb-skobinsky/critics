@@ -19,6 +19,14 @@ function closeLoginForm() {
   document.getElementById("login-form").classList.add("close");
 }
 
+function openNav() {
+  document.getElementById("main-drawer").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("main-drawer").style.width = "0";
+}
+
 window.onload = (event) => {
   let mainScrollButton = document.getElementById("scroll-down-icon");
   mainScrollButton.addEventListener("click", scrollDown, false);
@@ -32,4 +40,13 @@ window.onload = (event) => {
   document
     .getElementById("close-login-window")
     .addEventListener("click", closeLoginForm, false);
+  document
+    .getElementById("drawer-opener")
+    .addEventListener("click", openNav, false);
+  document
+    .getElementById("drawer-opener")
+    .addEventListener("touchstart", openNav, false);
+  document
+    .getElementById("drawer-closer")
+    .addEventListener("click", closeNav, false);
 };

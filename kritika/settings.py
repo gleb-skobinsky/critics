@@ -148,6 +148,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookOAuth2",
     "social_core.backends.google.GoogleOAuth2",
     "social_core.backends.vk.VKOAuth2",
+    "social_core.backends.yandex.YandexOpenId",
 )
 
 
@@ -205,3 +206,9 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = ["email"]
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ["email"]
+
+SOCIAL_AUTH_YANDEX_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_YANDEX_OAUTH2_KEY")
+SOCIAL_AUTH_YANDEX_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_YANDEX_OAUTH2_SECRET")
+YANDEX_APP_ID = SOCIAL_AUTH_YANDEX_OAUTH2_KEY
+YANDEX_API_SECRET = SOCIAL_AUTH_YANDEX_OAUTH2_SECRET
+YANDEX_OAUTH2_API_URL = "https://api-yaru.yandex.ru/me/"

@@ -14,6 +14,10 @@ function showLoginFormFromFooter() {
   showLoginForm();
 }
 
+function showNotImplAlert() {
+  window.alert("Feature not yet implemented!");
+}
+
 function closeLoginForm() {
   document.getElementById("login-overlay").classList.add("close");
   document.getElementById("login-form").classList.add("close");
@@ -29,7 +33,9 @@ function closeNav() {
 
 window.onload = (event) => {
   let mainScrollButton = document.getElementById("scroll-down-icon");
-  mainScrollButton.addEventListener("click", scrollDown, false);
+  if (mainScrollButton != null) {
+    mainScrollButton.addEventListener("click", scrollDown, false);
+  }
   let accountButton = document.getElementById("account-button");
   if (accountButton == null) {
     let loginButton = document.getElementById("login-button");
@@ -49,4 +55,10 @@ window.onload = (event) => {
   document
     .getElementById("drawer-closer")
     .addEventListener("click", closeNav, false);
+  document
+    .getElementById("languages-button")
+    .addEventListener("click", showNotImplAlert, false);
+  document
+    .getElementById("search-button")
+    .addEventListener("click", showNotImplAlert, false);
 };

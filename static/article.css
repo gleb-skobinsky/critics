@@ -38,7 +38,7 @@
   float: left;
   position: absolute;
   bottom: 60px;
-  z-index: 1000;
+  z-index: 100;
   padding: 5px;
   color: #ffffff;
   max-width: 90%;
@@ -74,4 +74,5 @@
   margin-top: 72px;
   max-width: 750px;
   object-fit: contain;
+  margin-bottom: 80px;
 }

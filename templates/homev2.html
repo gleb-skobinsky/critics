@@ -1,49 +1,4 @@
 {% extends 'basev2.html' %} {% block content %} {% load static %}
-<div class="login-overlay close" id="login-overlay"></div>
-<div class="login-wrapper" id="login-wrapper">
-  <div class="login-form close" id="login-form">
-    <div class="columns">
-      <div class="column">
-        <h1 class="title">Вход</h1>
-      </div>
-      <div class="column is-narrow">
-        <button id="close-login-window" class="delete is-large"></button>
-      </div>
-    </div>
-    <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-      <label for="id_username" class="username-label">Ваш Email:</label>
-      {{ form.username }}
-      <br />
-      <label for="id_password" class="password-label">Пароль:</label>
-      {{ form.password }}
-      <div class="submit-button-wrapper">
-        <input
-          type="submit"
-          class="button is-dark is-rounded is-medium"
-          value="Войти"
-        />
-      </div>
-    </form>
-    <a href="{% url 'social:begin' 'github' %}">Войти через GitHub</a><br />
-    <a href="{% url 'social:begin' 'vk-oauth2' %}">Войти через ВКонтакте</a
-    ><br />
-    <a href="{% url 'social:begin' 'google-oauth2' %}">Войти через Google</a>
-  </div>
-</div>
-<div id="main-drawer" class="drawer">
-  <a href="javascript:void(0)" id="drawer-closer" class="closebtn">&times;</a>
-  <a href="/"
-    ><div>Проект</div>
-    <div>Критика</div></a
-  >
-  <a href="/cinema/">Кино</a>
-  <a href="/music/">Музыка</a>
-  <a href="/books/">Книги</a>
-  <a href="/theatre/">Театр</a>
-  <a href="/games/">Игры</a>
-  <a href="/exhibitions/">Выставки</a>
-</div>
 <div class="img-wrapper">
   <img id="main-image" src="{{ main_post.cover_image.url }}" />
 </div>
@@ -115,7 +70,7 @@
           </div>
 
           <div class="column hide-mobile"></div>
-          <a href="manifest/" class="column is-narrow hide-mobile">
+          <a href="/manifest/" class="column is-narrow hide-mobile">
             <img src="/media/icons/about_wrapper.svg" />
           </a>
           {% if user.is_authenticated %}
@@ -131,8 +86,9 @@
             <img src="/media/icons/login.svg" />
           </div>
           {% endif %}
-          <div class="column is-narrow hide-mobile">
+          <div class="column is-narrow hide-mobile is-clickable">
             <svg
+              id="search-button"
               xmlns="http://www.w3.org/2000/svg"
               width="151"
               height="42"
@@ -163,7 +119,10 @@
               />
             </svg>
           </div>
-          <div class="column is-narrow hide-mobile">
+          <div
+            id="languages-button"
+            class="column is-narrow hide-mobile is-clickable"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="151"
@@ -216,21 +175,29 @@
       href="/articles/{{ main_post.id }}"
       class="main-article-title-background is-noisy"
     >
-      <div class="main-article-header has-text-centered">
-        {{ main_post.heading }}
-      </div>
-      <div class="main-article-subheader has-text-centered">
-        <svg
-          class="article-decorative-separator"
-          width="230"
-          height="5"
-          viewBox="0 0 230 5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line y1="2.5" x2="230" y2="2.5" stroke="#DB9C6F" stroke-width="5" />
-        </svg>
-        <div>{{ main_post.summary }}</div>
+      <div>
+        <div class="main-article-header has-text-centered">
+          {{ main_post.heading }}
+        </div>
+        <div class="main-article-subheader has-text-centered">
+          <svg
+            class="article-decorative-separator"
+            width="230"
+            height="5"
+            viewBox="0 0 230 5"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="2.5"
+              x2="230"
+              y2="2.5"
+              stroke="#DB9C6F"
+              stroke-width="5"
+            />
+          </svg>
+          <div>{{ main_post.summary }}</div>
+        </div>
       </div>
     </a>
     <div id="scroll-down-icon" class="scroll-down-icon has-text-centered">
@@ -611,86 +578,5 @@
     });
   </script>
 </div>
-<div class="footer-wrapper">
-  <div>
-    <div class="footer-content">
-      <div class="columns">
-        <div class="column is-half">
-          <div class="critics-copyright">© Проект Критика</div>
-          <div class="critics-essential">
-            Цифровое издание критических статей о культурных событиях и не
-            только
-          </div>
-        </div>
-        <div class="column is-quarter">
-          <div
-            onclick="window.location.href = '/manifest/'"
-            class="sitemap-item"
-          >
-            О нас
-          </div>
-          <div class="sitemap-item" id="login-button-footer">Вход</div>
-          <div class="sitemap-item">Поиск</div>
-          <div class="sitemap-item">Языки</div>
-        </div>
-        <div class="column is-quarter">
-          <div class="social-media-footer">Мы в соцсетях:</div>
-          <div class="columns">
-            <div class="column">
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://vk.com'"
-              >
-                ВКонтакте
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://twitter.com'"
-              >
-                Twitter
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://facebook.com'"
-              >
-                Facebook
-              </div>
-            </div>
-            <div class="column">
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://t.me'"
-              >
-                Telegram
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://instagram.com'"
-              >
-                Instagram
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="columns footer-rubrics">
-      <a href="/cinema/" class="column is-ft-rubric">Кино</a>
-      <div class="column is-narrow is-ft-rubric">|</div>
-      <a href="/music/" class="column is-ft-rubric left-padded">Музыка</a>
-      <div class="column is-narrow is-ft-rubric">|</div>
-      <a href="/books/" class="column is-ft-rubric left-padded">Книги</a>
-      <div class="column is-narrow is-ft-rubric">|</div>
-      <a href="/theatre/" class="column is-ft-rubric left-padded">Театр</a>
-      <div class="column is-narrow is-ft-rubric">|</div>
-      <a href="/games/" class="column is-ft-rubric left-padded">Игры</a>
-      <div class="column is-narrow is-ft-rubric">|</div>
-      <a href="/exhibitions/" class="column is-ft-rubric left-padded"
-        >Выставки</a
-      >
-    </div>
-  </div>
-</div>
-<script src="{% static 'home.js' %}"></script>
 
 {% endblock %}

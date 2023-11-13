@@ -2,3 +2,4 @@
 .env-old
 .env-new
 staticfiles_build/
+/db.sqlite3

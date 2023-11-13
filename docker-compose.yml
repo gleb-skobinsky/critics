@@ -1,4 +1,20 @@
 services:
+  web:
+    container_name: kritika_server
+    volumes:
+      - .:/kritika_server
+      - static_volume:/home/app/webapp/static
+    depends_on:
+      - db
+    build: .
+    command: sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      gunicorn kritika.wsgi:application --bind 0.0.0.0:8000"
+    image: kritika_image
+    expose:
+      - 8000
+    networks:
+      - server_net
   nginx:
     container_name: chirrio_nginx
     build: ./nginx
@@ -14,28 +30,6 @@ services:
     restart: "on-failure"
     networks:
       - server_net
-  web:
-    container_name: kritika_server
-    volumes:
-      - .:/kritika_server
-      - static_volume:/home/app/webapp/static
-    depends_on:
-      - db
-      - redis
-    build: .
-    command: sh -c "python manage.py makemigrations &&
-      python manage.py migrate &&
-      # python manage.py initadmin &&
-      gunicorn kritika.wsgi:application --bind 0.0.0.0:8000"
-    image: kritika_image
-    expose:
-      - 8000
-    networks:
-      - server_net
-#    environment:
-#      - APP_HOST=${APP_HOST}
-#      - APP_IP=${APP_IP}
-#      - FRONTEND_HOST=${FRONTEND_HOST}
   db:
     container_name: kritika_db
     image: postgres:14.5-alpine

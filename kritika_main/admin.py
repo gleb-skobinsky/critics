@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import KritikaUser, Topic, Role, Post, PostImage
+from .models import KritikaUser, Topic, Post, PostImage
 
 # Register your models here.
 
@@ -34,7 +34,6 @@ class PostImageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Topic, TopicAdmin)
-admin.site.register(Role, RoleAdmin)
 admin.site.register(KritikaUser, UserAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostImage, PostImageAdmin)

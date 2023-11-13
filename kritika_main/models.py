@@ -1,4 +1,6 @@
 from email.policy import default
+from enum import Enum
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.base_user import BaseUserManager
@@ -6,6 +8,11 @@ from django.utils.translation import gettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
+
+class Role(Enum):
+    ADMIN = "ADMIN"
+    AUTHOR = "AUTHOR"
+    CLIENT = "CLIENT"
 
 
 class CustomUserManager(BaseUserManager):
@@ -21,7 +28,7 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_("The Email must be set"))
         email = self.normalize_email(email)
-        role = Role.objects.get(role_name="Client")
+        role = str(Role.CLIENT)
         user = self.model(
             role=role,
             email=email,
@@ -59,13 +66,6 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, True, True)
 
 
-class Role(models.Model):
-    role_name = models.CharField(max_length=150)
-
-    def __str__(self):
-        return self.role_name
-
-
 class Topic(models.Model):
     topic_name = models.CharField(max_length=150)
 
@@ -80,7 +80,7 @@ class KritikaUser(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(max_length=12)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    role = models.ForeignKey(Role, on_delete=models.PROTECT, default=1)
+    role = models.CharField(max_length=12, default=Role.CLIENT)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

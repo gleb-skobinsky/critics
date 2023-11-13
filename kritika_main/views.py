@@ -31,9 +31,7 @@ def user_account(request: HttpRequest):
     if request.user is None:
         return redirect("/")
     else:
-        user_from_db = KritikaUser.objects.select_related("role").get(
-            pk=request.user.pk
-        )
+        user_from_db = KritikaUser.objects.get(pk=request.user.pk)
         return render(request, "user_account.html", {"user": user_from_db})
 
 

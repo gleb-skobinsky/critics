@@ -12,6 +12,7 @@ WORKDIR $DockerHOME
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ADD ./requirements.txt $DockerHOME/requirements.txt
 
 # install dependencies
 RUN pip install --upgrade pip
@@ -20,5 +21,7 @@ RUN pip install --upgrade pip
 COPY . $DockerHOME
 # run this command to install all dependencies
 RUN pip install -r requirements.txt
+
+ADD . $DockerHOME
 # port where the Django app runs
 EXPOSE 8000

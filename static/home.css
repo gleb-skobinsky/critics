@@ -526,6 +526,7 @@
   position: absolute;
   visibility: visible;
   top: 20vh;
+  opacity: 1;
   background-color: white;
   border-radius: 12px;
   padding-top: 24px;

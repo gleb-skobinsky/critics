@@ -10,6 +10,7 @@ services:
     command: sh -c "python manage.py makemigrations &&
       python manage.py migrate &&
       python manage.py initadmin &&
+      python manage.py collectstatic &&
       gunicorn kritika.wsgi:application --bind 0.0.0.0:8000"
     image: kritika_image
     expose:

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["195.133.145.204"]
+ALLOWED_HOSTS = ["critics.su", "195.133.145.204", "localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [

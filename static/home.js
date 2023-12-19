@@ -38,8 +38,10 @@ window.onload = (event) => {
   }
   let accountButton = document.getElementById("account-button");
   if (accountButton == null) {
-    let loginButton = document.getElementById("login-button");
-    loginButton.addEventListener("click", showLoginForm, false);
+    let loginButtons = document.getElementsByName("login-button");
+    for (const button of loginButtons) {
+        button.addEventListener("click", showLoginForm, false);
+    }
   }
   let loginButtonFooter = document.getElementById("login-button-footer");
   loginButtonFooter.addEventListener("click", showLoginFormFromFooter, false);

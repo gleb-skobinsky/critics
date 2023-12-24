@@ -42,7 +42,7 @@
 }
 
 .burger-content {
-  background-image: url("/media/icons/menu_icon.svg");
+  background-image: no-repeat center/80% url("/media/icons/menu_icon.svg");
   position: relative;
   margin: auto;
   top: 0px;
@@ -183,7 +183,8 @@
   display: block;
 }
 .categories-wrapper {
-  width: 1135px;
+  width: 80%
+  max-width: 1135px;
   padding-top: 80px;
   padding-bottom: 90px;
 }
@@ -242,7 +243,8 @@
   margin-bottom: 60px;
 }
 .weekly-wrapper {
-  width: 1135px;
+  width: 80%;
+  max-width: 1135px;
 }
 .article-image {
   border-radius: 10px;
@@ -307,7 +309,8 @@
   display: flex;
 }
 .social-media-wrapper {
-  width: 1135px;
+  width: 80%;
+  max-width: 1135px;
 }
 .social-media-heading {
   font-family: "Playfair Display";
@@ -343,11 +346,13 @@
   justify-content: center;
 }
 .calendar-content-container {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
+  background: url("/media/icons/calendar_background.jpg");
+  background-size: 100vw;
 }
 
 .calendar-overlay {
@@ -393,17 +398,17 @@
 }
 @media screen and (max-width: 1400px) {
   .footer-content {
-      max-width: 1135px;
+      max-width: 60%;
     }
 }
 @media screen and (max-width: 1000px) {
   .footer-content {
-      max-width: 800px;
+      max-width: 80%;
     }
 }
 @media screen and (max-width: 700px) {
   .footer-content {
-      max-width: 600px;
+      max-width: 80%;
     }
 }
 
@@ -456,7 +461,7 @@
   cursor: pointer;
 }
 .footer-rubrics {
-  width: 865px;
+  width: 40%;
   margin-top: 32px;
 }
 .is-ft-rubric {
@@ -514,7 +519,7 @@
   position: absolute;
   z-index: 1;
   margin-top: 80px;
-  width: 100vw;
+  width: 80%;
   max-width: 1135px;
 }
 .calendar-sep {
@@ -606,3 +611,4 @@
     ),
     url("/media/icons/noise.svg");
 }
+* { border: 1px solid red; }

@@ -58,9 +58,6 @@ window.onload = (event) => {
     .getElementById("drawer-closer")
     .addEventListener("click", closeNav, false);
   document
-    .getElementById("languages-button")
-    .addEventListener("click", showNotImplAlert, false);
-  document
     .getElementById("search-button")
     .addEventListener("click", showNotImplAlert, false);
 };

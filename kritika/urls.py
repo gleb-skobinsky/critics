@@ -21,9 +21,10 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-        path("admin/", admin.site.urls),
-        path("", home, name="main-view"),
-        path("", include("kritika_main.urls")),
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path("admin/", admin.site.urls),
+                  path("", home, name="main-view"),
+                  path("", include("kritika_main.urls")),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()

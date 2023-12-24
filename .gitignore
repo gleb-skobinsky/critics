@@ -1,5 +1,6 @@
 .env
 .env-old
 .env-new
+config.yaml
 staticfiles_build/
 /db.sqlite3

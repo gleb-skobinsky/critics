@@ -391,9 +391,22 @@
   justify-content: center;
   bottom: 0px;
 }
-.footer-content {
-  width: 1135px;
+@media screen and (max-width: 1400px) {
+  .footer-content {
+      max-width: 1135px;
+    }
 }
+@media screen and (max-width: 1000px) {
+  .footer-content {
+      max-width: 800px;
+    }
+}
+@media screen and (max-width: 700px) {
+  .footer-content {
+      max-width: 600px;
+    }
+}
+
 .critics-copyright {
   font-family: "Roboto";
   font-style: normal;

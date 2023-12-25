@@ -4,6 +4,15 @@
   object-fit: cover;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+  position: relative
+}
+
 .img-gradient {
   position: relative;
 }
@@ -52,12 +61,12 @@
 }
 .main-navbar {
   width: 100vw;
-  max-width: 1440px;
+  max-width: 1135px;
   margin: auto;
 }
 @media screen and (max-width: 650px) {
   .main-navbar {
-    max-width: 100vw;
+    max-width: 1135px;
   }
 }
 .top-page-wrapper {
@@ -137,6 +146,10 @@
 .article-decorative-separator {
   margin-top: 60px;
   margin-bottom: 60px;
+  background-color: #DB9C6F;
+  height: 5px;
+  width: 60%;
+  max-width: 230px;
 }
 .main-article-subheader {
   font-family: "Playfair Display";
@@ -183,7 +196,7 @@
   display: block;
 }
 .categories-wrapper {
-  width: 80%
+  width: 80%;
   max-width: 1135px;
   padding-top: 80px;
   padding-bottom: 90px;
@@ -341,7 +354,7 @@
   color: #ffffff;
   margin-bottom: 26px;
 }
-.calendar-wrapper {
+.center-horizontally {
   display: flex;
   justify-content: center;
 }
@@ -352,7 +365,7 @@
   display: flex;
   justify-content: center;
   background: url("/media/icons/calendar_background.jpg");
-  background-size: 100vw;
+  background-size: cover;
 }
 
 .calendar-overlay {
@@ -611,4 +624,3 @@
     ),
     url("/media/icons/noise.svg");
 }
-* { border: 1px solid red; }

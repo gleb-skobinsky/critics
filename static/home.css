@@ -606,12 +606,18 @@ body {
   justify-content: center;
   margin-top: 32px;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
   .hide-mobile {
     display: none;
   }
 }
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 768px) {
+  .hide-desktop {
+    visibility: hidden;
+    width: 0px;
+  }
+}
+@media screen and (max-width: 768px) {
   .is-mobile-fullwidth {
     max-width: 100vw;
   }
@@ -627,4 +633,15 @@ body {
       rgba(0, 0, 0, 0.6)
     ),
     url("/media/icons/noise.svg");
+}
+
+.calendar-header-and-arrows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mobile-calendar-toggle {
+    height: 100%;
+    margin-top: 16px;
 }

@@ -368,8 +368,14 @@ body {
   background-size: cover;
 }
 
+.calendar-widget {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
 .calendar-overlay {
-  margin-top: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
   background: rgba(0, 0, 0, 0.4);
   border: 3px solid rgba(255, 219, 192, 0.4);
   border-radius: 14px;
@@ -495,7 +501,6 @@ body {
   padding-left: 1.5rem;
 }
 .previous-month {
-  margin-top: 100px;
   background: rgba(255, 219, 192, 0.2);
   border-radius: 0px 14px 14px 0px;
   padding-left: 64px;
@@ -515,7 +520,6 @@ body {
   overflow: hidden;
 }
 .next-month {
-  margin-top: 100px;
   background: rgba(255, 219, 192, 0.2);
   border-radius: 14px 0px 0px 14px;
   padding-left: 64px;

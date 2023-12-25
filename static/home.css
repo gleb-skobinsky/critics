@@ -146,10 +146,13 @@ body {
 .article-decorative-separator {
   margin-top: 60px;
   margin-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #DB9C6F;
   height: 5px;
   width: 60%;
   max-width: 230px;
+  flex: none;
 }
 .main-article-subheader {
   font-family: "Playfair Display";
@@ -159,6 +162,8 @@ body {
   /* line-height: 53px; */
   text-align: center;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 650px) {

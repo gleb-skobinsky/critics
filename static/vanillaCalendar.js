@@ -1,8 +1,8 @@
 let vanillaCalendar = {
   month: document.querySelectorAll('[data-calendar-area="month"]')[0],
   prevmonth: document.getElementById("previous-month-content"),
-  next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
-  previous: document.querySelectorAll('[data-calendar-toggle="previous"]')[0],
+  next: document.querySelectorAll('[data-calendar-toggle="next"]'),
+  previous: document.querySelectorAll('[data-calendar-toggle="previous"]'),
   label: document.querySelectorAll('[data-calendar-label="month"]')[0],
   prevLabel: document.getElementById("previous-month-label"),
   activeDates: null,
@@ -19,23 +19,26 @@ let vanillaCalendar = {
 
   createListeners: function () {
     let _this = this;
-    this.next.addEventListener("click", function () {
-      _this.clearCalendar();
-      let nextMonth = _this.date.getMonth() + 1;
-      _this.date.setMonth(nextMonth);
-      _this.createMonth();
-      vanillaCalendarPrev.next.click();
-      vanillaCalendarNext.next.click();
-    });
-    // Clears the calendar and shows the previous month
-    this.previous.addEventListener("click", function () {
-      _this.clearCalendar();
-      let prevMonth = _this.date.getMonth() - 1;
-      _this.date.setMonth(prevMonth);
-      _this.createMonth();
-      vanillaCalendarPrev.previous.click();
-      vanillaCalendarNext.previous.click();
-    });
+    for (const nextBtn of this.next) {
+      nextBtn.addEventListener("click", function () {
+        _this.clearCalendar();
+        let nextMonth = _this.date.getMonth() + 1;
+        _this.date.setMonth(nextMonth);
+        _this.createMonth();
+        vanillaCalendarPrev.next.click();
+        vanillaCalendarNext.next.click();
+      });
+    }
+    for (const prevBtn of this.previous) {
+      prevBtn.addEventListener("click", function () {
+        _this.clearCalendar();
+        let prevMonth = _this.date.getMonth() - 1;
+        _this.date.setMonth(prevMonth);
+        _this.createMonth();
+        vanillaCalendarPrev.previous.click();
+        vanillaCalendarNext.previous.click();
+      });
+    }
   },
 
   createDay: function (num, day, year) {

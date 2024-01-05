@@ -7,6 +7,7 @@ from kritika_main.custom_auth_form import CustomAuthForm
 from kritika_main.edit_form import EditForm
 from kritika_main.models import KritikaUser
 from kritika_main.models import Post, Topic
+from kritika_main.models import Role
 
 
 def get_posts_by_topic(topic_name: str):
@@ -44,13 +45,13 @@ def kritika_admin(request: HttpRequest):
         user_from_db = KritikaUser.objects.get(
             pk=request.user.pk
         )
-        if user_from_db.role.role_name == "Client":
+        if user_from_db.role == Role.CLIENT:
             editable_posts = []
             return render(request, template_name, {"posts": editable_posts})
-        elif user_from_db.role.role_name == "Moderator":
+        elif user_from_db.role == Role.AUTHOR:
             editable_posts = Post.objects.filter(user=request.user.pk)
             return render(request, template_name, {"posts": editable_posts})
-        elif user_from_db.role.role_name == "Administrator":
+        elif user_from_db.role == Role.ADMIN:
             editable_posts = Post.objects.all()
             return render(request, template_name, {"posts": editable_posts})
 

@@ -204,3 +204,9 @@ html {
 .manifest-placeholder {
   min-height: 100vh;
 }
+
+.disable-scroll-completely {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}

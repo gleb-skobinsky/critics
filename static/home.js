@@ -19,16 +19,23 @@ function showNotImplAlert() {
 }
 
 function closeLoginForm() {
-  document.getElementById("login-overlay").classList.add("close");
-  document.getElementById("login-form").classList.add("close");
+  document.getElementById("login-overlay").classList.toggle("close");
+  document.getElementById("login-form").classList.toggle("close");
 }
 
 function openNav() {
   document.getElementById("main-drawer").style.width = "250px";
+  toggleScroll()
+}
+
+function toggleScroll() {
+  document.getElementsByTagName("html")[0].classList.toggle("disable-scroll-completely");
+  document.body.classList.toggle("disable-scroll-completely");
 }
 
 function closeNav() {
   document.getElementById("main-drawer").style.width = "0";
+  toggleScroll();
 }
 
 window.onload = (event) => {

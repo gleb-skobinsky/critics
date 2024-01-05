@@ -36,9 +36,14 @@ DEBUG = CONFIG_DEBUG if CONFIG_DEBUG is not None else False
 
 ALLOWED_HOSTS = ["critics.su", "195.133.145.204", "localhost", "127.0.0.1"]
 
-CSRF_COOKIE_DOMAIN = None if DEBUG else "critics.su"
-# Application definition
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'https://localhost',
+    'https://critics.su',
+    'https://critics.su'
+]
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

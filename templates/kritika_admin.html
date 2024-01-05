@@ -1,5 +1,5 @@
 {% extends 'basev2.html' %} {% block content %} {% load static %}
-<div class="column">
+<div class="column" style="min-height: 100vh">
   {% for post in posts %}
   <a href="/editor/{{ post.id }}">{{ post.heading }}</a>
   <div></div>

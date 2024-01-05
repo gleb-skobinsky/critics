@@ -45,13 +45,13 @@ def kritika_admin(request: HttpRequest):
         user_from_db = KritikaUser.objects.get(
             pk=request.user.pk
         )
-        if user_from_db.role == Role.CLIENT:
+        if user_from_db.role == str(Role.CLIENT):
             editable_posts = []
             return render(request, template_name, {"posts": editable_posts})
-        elif user_from_db.role == Role.AUTHOR:
+        elif user_from_db.role == str(Role.AUTHOR):
             editable_posts = Post.objects.filter(user=request.user.pk)
             return render(request, template_name, {"posts": editable_posts})
-        elif user_from_db.role == Role.ADMIN:
+        elif user_from_db.role == str(Role.ADMIN):
             editable_posts = Post.objects.all()
             return render(request, template_name, {"posts": editable_posts})
 

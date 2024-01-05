@@ -41,7 +41,7 @@ def kritika_admin(request: HttpRequest):
     if request.user is None:
         return redirect("/")
     else:
-        user_from_db = KritikaUser.objects.select_related("role").get(
+        user_from_db = KritikaUser.objects.get(
             pk=request.user.pk
         )
         if user_from_db.role.role_name == "Client":

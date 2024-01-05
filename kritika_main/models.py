@@ -1,11 +1,11 @@
-from email.policy import default
 from enum import Enum
 
-from django.db import models
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
-from django.contrib.auth.base_user import BaseUserManager
-from django.utils.translation import gettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 
 # Create your models here.
 
@@ -41,7 +41,7 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_user(
-        self, email, password=None, is_staff=False, is_superuser=False, **extra_fields
+            self, email, password=None, is_staff=False, is_superuser=False, **extra_fields
     ):
         return self._create_user(
             email=email,

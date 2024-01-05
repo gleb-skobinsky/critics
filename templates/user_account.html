@@ -89,9 +89,9 @@
 </div>
 <div class="main-account-wrapper">
   <div class="main-account">
-    {% if user.role.role_name == 'Administrator' %}
+    {% if user.role == 'Role.ADMIN' %}
     <a class="administrating" href="/kritika_admin/">Администрирование</a>
-    {% elif user.role.role_name == 'Moderator' %}
+    {% elif user.role == 'Role.AUTHOR' %}
     <a href="/kritika_admin/">Администрирование</a>
     {% else %}
     <div></div>

@@ -1,11 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpRequest
-from kritika_main.models import Post, Topic
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpRequest
 from django.shortcuts import redirect
+from django.shortcuts import render
+
 from kritika_main.custom_auth_form import CustomAuthForm
-from kritika_main.models import KritikaUser
 from kritika_main.edit_form import EditForm
+from kritika_main.models import KritikaUser
+from kritika_main.models import Post, Topic
 
 
 def get_posts_by_topic(topic_name: str):

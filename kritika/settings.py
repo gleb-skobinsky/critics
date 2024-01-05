@@ -35,6 +35,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = CONFIG_DEBUG if CONFIG_DEBUG is not None else False
 
 ALLOWED_HOSTS = ["critics.su", "195.133.145.204", "localhost", "127.0.0.1"]
+
+CSRF_COOKIE_DOMAIN = None if DEBUG else "critics.su"
 # Application definition
 
 INSTALLED_APPS = [

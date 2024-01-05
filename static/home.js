@@ -52,9 +52,6 @@ window.onload = (event) => {
     .getElementById("drawer-opener")
     .addEventListener("click", openNav, false);
   document
-    .getElementById("drawer-opener")
-    .addEventListener("touchstart", openNav, false);
-  document
     .getElementById("drawer-closer")
     .addEventListener("click", closeNav, false);
   document

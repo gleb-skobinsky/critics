@@ -1,174 +1,174 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Критика</title>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-      type="text/css"
+            href="https://fonts.googleapis.com/css?family=Roboto"
+            rel="stylesheet"
+            type="text/css"
     />
-    <link rel="stylesheet" href="/static/app.css" />
-    <link rel="stylesheet" href="/static/home.css" />
-    <link rel="stylesheet" href="/static/calendar.css" />
-    <link rel="stylesheet" href="/static/article.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+    <link rel="stylesheet" href="/static/app.css"/>
+    <link rel="stylesheet" href="/static/home.css"/>
+    <link rel="stylesheet" href="/static/calendar.css"/>
+    <link rel="stylesheet" href="/static/article.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
 
-  <body>
-    <div class="login-overlay close" id="login-overlay"></div>
-    <div class="login-wrapper" id="login-wrapper">
-      <div class="login-form close" id="login-form">
+<body>
+<div class="login-overlay close" id="login-overlay"></div>
+<div class="login-wrapper" id="login-wrapper">
+    <div class="login-form close" id="login-form">
         <div class="columns">
-          <div class="column">
-            <h1 class="title">Вход</h1>
-          </div>
-          <div class="column is-narrow">
-            <button id="close-login-window" class="delete is-large"></button>
-          </div>
+            <div class="column">
+                <h1 class="title">Вход</h1>
+            </div>
+            <div class="column is-narrow">
+                <button id="close-login-window" class="delete is-large"></button>
+            </div>
         </div>
         <form method="post" action="{% url 'login' %}">
-          {% csrf_token %}
-          <label for="id_username" class="username-label">Ваш Email:</label>
-          {{ form.username }}
-          <br />
-          <label for="id_password" class="password-label">Пароль:</label>
-          {{ form.password }}
-          <div class="submit-button-wrapper">
-            <input
-              type="submit"
-              class="button is-dark is-rounded is-medium"
-              value="Войти"
-            />
-          </div>
+            {% csrf_token %}
+            <label for="id_username" class="username-label">Ваш Email:</label>
+            {{ form.username }}
+            <br/>
+            <label for="id_password" class="password-label">Пароль:</label>
+            {{ form.password }}
+            <div class="submit-button-wrapper">
+                <input
+                        type="submit"
+                        class="button is-dark is-rounded is-medium"
+                        value="Войти"
+                />
+            </div>
         </form>
         <a href="{% url 'social:begin' 'vk-oauth2' %}">Войти через ВКонтакте</a
-        ><br />
+        ><br/>
         <a href="{% url 'social:begin' 'google-oauth2' %}">Войти через Google</a
-        ><br />
+        ><br/>
         <a href="{% url 'social:begin' 'yandex-oauth2' %}"
-          >Войти через Яндекс</a
+        >Войти через Яндекс</a
         >
-      </div>
     </div>
-    <div id="main-drawer" class="drawer">
-      <a href="javascript:void(0)" id="drawer-closer" class="closebtn"
-        >&times;</a
-      >
-      <a href="/"
-        ><div>Проект</div>
-        <div>Критика</div></a
-      >
-      <a href="/cinema/">Кино</a>
-      <a href="/music/">Музыка</a>
-      <a href="/books/">Книги</a>
-      <a href="/theatre/">Театр</a>
-      <a href="/games/">Игры</a>
-      <a href="/exhibitions/">Выставки</a>
-      <a href="/manifest/" class="is-hidden-desktop">
-        <img src="/media/icons/about_wrapper.svg" />
-      </a>
-      {% if user.is_authenticated %}
-      <a
-        href="/user_account"
-        id="account-button"
-        class="is-login is-hidden-desktop"
-      >
-        <img src="/media/icons/lk_button.svg" />
-      </a>
-      {% else %}
-      <div class="is-login is-hidden-desktop" name="login-button">
-        <img src="/media/icons/login.svg" />
-      </div>
-      {% endif %}
-      <div class="is-hidden-desktop is-clickable">
-        <img src="/media/icons/search.svg" />
-      </div>
+</div>
+<div id="main-drawer" class="drawer">
+    <div id="drawer-closer" class="closebtn">&times;</div>
+    <a href="/"
+    >
+        <div>Проект</div>
+        <div>Критика</div>
+    </a
+    >
+    <a href="/cinema/">Кино</a>
+    <a href="/music/">Музыка</a>
+    <a href="/books/">Книги</a>
+    <a href="/theatre/">Театр</a>
+    <a href="/games/">Игры</a>
+    <a href="/exhibitions/">Выставки</a>
+    <a href="/manifest/" class="is-hidden-desktop">
+        <img src="/media/icons/about_wrapper.svg"/>
+    </a>
+    {% if user.is_authenticated %}
+    <a
+            href="/user_account"
+            id="account-button"
+            class="is-login is-hidden-desktop"
+    >
+        <img src="/media/icons/lk_button.svg"/>
+    </a>
+    {% else %}
+    <div class="is-login is-hidden-desktop drawer-btn" name="login-button">
+        <img src="/media/icons/login.svg"/>
     </div>
-    {% block content %} {% endblock %}
-    <div class="footer-wrapper">
-      <div>
+    {% endif %}
+    <div class="is-hidden-desktop is-clickable drawer-btn">
+        <img src="/media/icons/search.svg"/>
+    </div>
+</div>
+{% block content %} {% endblock %}
+<div class="footer-wrapper">
+    <div>
         <div class="footer-content">
-          <div class="columns">
-            <div class="column is-half">
-              <div class="critics-copyright">© Проект Критика</div>
-              <div class="critics-essential">
-                Цифровое издание критических статей о культурных событиях и не
-                только
-              </div>
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="critics-copyright">© Проект Критика</div>
+                    <div class="critics-essential">
+                        Цифровое издание критических статей о культурных событиях и не
+                        только
+                    </div>
+                </div>
+                <div class="column is-quarter">
+                    <div
+                            onclick="window.location.href = '/manifest/'"
+                            class="sitemap-item"
+                    >
+                        О нас
+                    </div>
+                    <div class="sitemap-item" id="login-button-footer">Вход</div>
+                    <div class="sitemap-item">Поиск</div>
+                </div>
+                <div class="column is-quarter">
+                    <div class="social-media-footer">Мы в соцсетях:</div>
+                    <div class="columns">
+                        <div class="column">
+                            <div
+                                    class="footer-sm-item"
+                                    onclick="window.location.href = 'https://vk.com'"
+                            >
+                                ВКонтакте
+                            </div>
+                            <div
+                                    class="footer-sm-item"
+                                    onclick="window.location.href = 'https://youtube.com'"
+                            >
+                                Youtube
+                            </div>
+                            <div
+                                    class="footer-sm-item"
+                                    onclick="window.location.href = 'https://dzen.ru'"
+                            >
+                                Дзен
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div
+                                    class="footer-sm-item"
+                                    onclick="window.location.href = 'https://t.me'"
+                            >
+                                Telegram
+                            </div>
+                            <div
+                                    class="footer-sm-item"
+                                    onclick="window.location.href = 'https://instagram.com'"
+                            >
+                                Instagram
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="column is-quarter">
-              <div
-                onclick="window.location.href = '/manifest/'"
-                class="sitemap-item"
-              >
-                О нас
-              </div>
-              <div class="sitemap-item" id="login-button-footer">Вход</div>
-              <div class="sitemap-item">Поиск</div>
-            </div>
-            <div class="column is-quarter">
-          <div class="social-media-footer">Мы в соцсетях:</div>
-          <div class="columns">
-            <div class="column">
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://vk.com'"
-              >
-                ВКонтакте
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://youtube.com'"
-              >
-                Youtube
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://dzen.ru'"
-              >
-                Дзен
-              </div>
-            </div>
-            <div class="column">
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://t.me'"
-              >
-                Telegram
-              </div>
-              <div
-                class="footer-sm-item"
-                onclick="window.location.href = 'https://instagram.com'"
-              >
-                Instagram
-              </div>
-            </div>
-          </div>
-        </div>
-          </div>
         </div>
         <div class="columns footer-rubrics">
-          <a href="/cinema/" class="column is-ft-rubric">Кино</a>
-          <div class="column is-narrow is-ft-rubric">|</div>
-          <a href="/music/" class="column is-ft-rubric left-padded">Музыка</a>
-          <div class="column is-narrow is-ft-rubric">|</div>
-          <a href="/books/" class="column is-ft-rubric left-padded">Книги</a>
-          <div class="column is-narrow is-ft-rubric">|</div>
-          <a href="/theatre/" class="column is-ft-rubric left-padded">Театр</a>
-          <div class="column is-narrow is-ft-rubric">|</div>
-          <a href="/games/" class="column is-ft-rubric left-padded">Игры</a>
-          <div class="column is-narrow is-ft-rubric">|</div>
-          <a href="/exhibitions/" class="column is-ft-rubric left-padded"
+            <a href="/cinema/" class="column is-ft-rubric">Кино</a>
+            <div class="column is-narrow is-ft-rubric">|</div>
+            <a href="/music/" class="column is-ft-rubric left-padded">Музыка</a>
+            <div class="column is-narrow is-ft-rubric">|</div>
+            <a href="/books/" class="column is-ft-rubric left-padded">Книги</a>
+            <div class="column is-narrow is-ft-rubric">|</div>
+            <a href="/theatre/" class="column is-ft-rubric left-padded">Театр</a>
+            <div class="column is-narrow is-ft-rubric">|</div>
+            <a href="/games/" class="column is-ft-rubric left-padded">Игры</a>
+            <div class="column is-narrow is-ft-rubric">|</div>
+            <a href="/exhibitions/" class="column is-ft-rubric left-padded"
             >Выставки</a
-          >
+            >
         </div>
-      </div>
     </div>
-    <script src="{% static 'home.js' %}" type="text/javascript"></script>
-  </body>
+</div>
+<script src="{% static 'home.js' %}" type="text/javascript"></script>
+</body>
 </html>

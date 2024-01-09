@@ -205,6 +205,10 @@ html {
   min-height: 100vh;
 }
 
+.search-container {
+  min-height: 100vh;
+}
+
 .disable-scroll-completely {
   margin: 0;
   height: 100%;

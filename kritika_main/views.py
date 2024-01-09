@@ -127,3 +127,7 @@ def logout_user(request: HttpRequest):
 
 def manifest(request: HttpRequest):
     return render(request, "manifest.html", {})
+
+
+def search(request: HttpRequest):
+    return render(request, "search.html", {})

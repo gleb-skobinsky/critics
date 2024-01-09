@@ -38,6 +38,10 @@ function closeNav() {
   toggleScroll();
 }
 
+function navigateToSearch() {
+    window.location.href = "/search"
+}
+
 window.onload = (event) => {
   let mainScrollButton = document.getElementById("scroll-down-icon");
   if (mainScrollButton != null) {
@@ -61,7 +65,9 @@ window.onload = (event) => {
   document
     .getElementById("drawer-closer")
     .addEventListener("click", closeNav, false);
-  document
-    .getElementById("search-button")
-    .addEventListener("click", showNotImplAlert, false);
+  let searchButtons = document
+    .getElementsByName("search-button");
+  for (const button of searchButtons) {
+    button.addEventListener("click", navigateToSearch, false);
+  }
 };

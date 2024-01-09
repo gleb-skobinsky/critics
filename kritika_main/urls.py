@@ -19,4 +19,5 @@ urlpatterns = [
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("oauth/", include("social_django.urls", namespace="social")),
     path("manifest/", views.manifest, name="manifest"),
+    path("search/", views.search, name="search")
 ]

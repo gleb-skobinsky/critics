@@ -111,6 +111,7 @@ body {
   padding-bottom: 10vh;
   width: 70vw;
   max-width: 1135px;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-self: center;

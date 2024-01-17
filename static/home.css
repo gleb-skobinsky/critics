@@ -111,7 +111,7 @@ body {
   padding-bottom: 10vh;
   width: 70vw;
   max-width: 1135px;
-  max-height: 50vh;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -148,14 +148,18 @@ body {
   flex-direction: row;
 }
 .main-article-header {
+  display: block;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
-  /* line-height: 8vh; */
+  line-height: 1.2em;
+  max-height: 2.4em;
   text-align: center;
   color: #ffffff;
   word-wrap: break-word;
+  max-width: 100%;
+  overflow: hidden;        /* Hide overflowing content */
 }
 @media screen and (max-width: 650px) {
   .main-article-header {
@@ -183,6 +187,13 @@ body {
   color: #ffffff;
   display: flex;
   flex-direction: column;
+}
+
+.main-article-subheader div {
+  max-width: 100%;
+  white-space: nowrap;     /* Prevent text from wrapping */
+  overflow: hidden;        /* Hide overflowing content */
+  text-overflow: ellipsis; /* Display ellipsis (...) for overflowed text */
 }
 
 @media screen and (max-width: 650px) {

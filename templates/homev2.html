@@ -7,7 +7,8 @@
         <div class="top-of-page has-text-centered">
             <div class="main-navbar has-text-centered">
                 <div class="columns is-desktop is-mobile-fullwidth">
-                    <div class="column is-narrow mobile-logo">
+                <div class="column is-narrow mobile-logo">
+                    <div class="burger-and-logo">
                         <svg
                                 class="burger-background hide-desktop"
                                 id="drawer-opener"
@@ -35,32 +36,36 @@
                                     stroke-linecap="round"
                             />
                         </svg>
-                        <a href="/" class="main-logo">
-                            <img src="/media/main_logo.png">
+                        <a href="/">
+                            <div class="main-logo">
+                                <img class="main-logo-image" src="/media/icons/main_logo_navbar.png">
+                            </div>
                         </a>
-                    </div>
-
-                    <div class="column hide-mobile"></div>
-                    <a href="/manifest/" class="column is-narrow hide-mobile">
-                        <img src="/media/icons/about_wrapper.svg"/>
-                    </a>
-                    {% if user.is_authenticated %}
-                    <a
-                            href="/user_account"
-                            id="account-button"
-                            class="column is-narrow is-login hide-mobile"
-                    >
-                        <img src="/media/icons/lk_button.svg"/>
-                    </a>
-                    {% else %}
-                    <div class="column is-narrow is-login hide-mobile" name="login-button">
-                        <img src="/media/icons/login.svg"/>
-                    </div>
-                    {% endif %}
-                    <div class="column is-narrow hide-mobile is-clickable">
-                        <img src="/media/icons/search.svg" name="search-button"/>
+                        <div></div>
                     </div>
                 </div>
+
+                <div class="column hide-mobile"></div>
+                <a href="/manifest/" class="column is-narrow is-clickable hide-mobile navbar-item">
+                    <img src="/media/icons/about_wrapper.svg"/>
+                </a>
+                {% if user.is_authenticated %}
+                <a
+                        href="/user_account"
+                        id="account-button"
+                        class="column is-narrow is-login is-clickable hide-mobile navbar-item"
+                >
+                    <img src="/media/icons/lk_button.svg"/>
+                </a>
+                {% else %}
+                <div class="column is-narrow is-login hide-mobile is-clickable navbar-item" name="login-button">
+                    <img src="/media/icons/login.svg"/>
+                </div>
+                {% endif %}
+                <div class="column is-narrow hide-mobile is-clickable navbar-item">
+                    <img src="/media/icons/search.svg" name="search-button"/>
+                </div>
+            </div>
             </div>
         </div>
         <a
@@ -354,7 +359,8 @@
                             <div class="column is-inside-calendar">
                                 <div class="column minimized" id="vcal-column">
                                     <div class="calendar-header-and-arrows">
-                                        <div class="mobile-calendar-toggle hide-desktop" data-calendar-toggle="previous">
+                                        <div class="mobile-calendar-toggle hide-desktop"
+                                             data-calendar-toggle="previous">
                                             <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="12"

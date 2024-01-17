@@ -60,7 +60,7 @@ body {
   height: 40px;
 }
 .main-navbar {
-  width: 100vw;
+  width: 80vw;
   max-width: 1135px;
   margin: auto;
 }
@@ -69,6 +69,24 @@ body {
     max-width: 1135px;
   }
 }
+
+.navbar-item {
+    background-color: transparent !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar-item:hover {
+   background-color: transparent !important;
+}
+
+.navbar-item img {
+  width: auto;
+  height: 46px;
+  max-height: 46px;
+}
+
 .top-page-wrapper {
   position: absolute;
   top: 30px;

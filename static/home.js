@@ -1,5 +1,5 @@
 function scrollDown() {
-  let categories = document.getElementById("article-categories");
+  let categories = document.getElementById("latest-materials");
   categories.scrollIntoView({ behavior: "smooth" });
 }
 

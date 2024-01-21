@@ -17,10 +17,13 @@ import yaml
 from dotenv import load_dotenv
 
 load_dotenv()
-with open('config.yaml', 'r') as file:
-    server_config = yaml.safe_load(file)
 
-CONFIG_DEBUG = server_config["debug"]
+server_config = None
+if os.path.isfile('config.yaml'):
+    with open('config.yaml', 'r') as file:
+        server_config = yaml.safe_load(file)
+
+CONFIG_DEBUG = server_config["debug"] if server_config is not None else True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

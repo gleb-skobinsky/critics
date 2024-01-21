@@ -222,10 +222,30 @@ html {
 
 .search-container {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .disable-scroll-completely {
   margin: 0;
   height: 100%;
   overflow: hidden
+}
+
+.search-field {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 48px;
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #eae7e7;
+    border: none;
+}
+
+.search-field:focus {
+    border: none;
+    outline: none;
 }

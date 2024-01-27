@@ -4,8 +4,10 @@ function scrollDown() {
 }
 
 function showLoginForm() {
-  document.getElementById("login-overlay").classList.remove("close");
-  document.getElementById("login-form").classList.remove("close");
+  closeNav();
+  document.getElementById("login-overlay").classList.toggle("close");
+  document.getElementById("login-form").classList.toggle("close");
+  disableScroll();
 }
 
 function showLoginFormFromFooter() {
@@ -14,28 +16,30 @@ function showLoginFormFromFooter() {
   showLoginForm();
 }
 
-function showNotImplAlert() {
-  window.alert("Feature not yet implemented!");
-}
-
 function closeLoginForm() {
   document.getElementById("login-overlay").classList.toggle("close");
   document.getElementById("login-form").classList.toggle("close");
+  enableScroll();
 }
 
 function openNav() {
   document.getElementById("main-drawer").style.width = "250px";
-  toggleScroll()
+  disableScroll();
 }
 
-function toggleScroll() {
-  document.getElementsByTagName("html")[0].classList.toggle("disable-scroll-completely");
-  document.body.classList.toggle("disable-scroll-completely");
+function enableScroll() {
+  document.getElementsByTagName("html")[0].classList.remove("disable-scroll-completely");
+  document.body.classList.remove("disable-scroll-completely");
+}
+
+function disableScroll() {
+  document.getElementsByTagName("html")[0].classList.add("disable-scroll-completely");
+  document.body.classList.add("disable-scroll-completely");
 }
 
 function closeNav() {
   document.getElementById("main-drawer").style.width = "0";
-  toggleScroll();
+  enableScroll();
 }
 
 function navigateToSearch() {

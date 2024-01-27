@@ -23,13 +23,9 @@
 <div class="login-overlay close" id="login-overlay"></div>
 <div class="login-wrapper" id="login-wrapper">
     <div class="login-form close" id="login-form">
-        <div class="columns">
-            <div class="column">
-                <h1 class="title">Вход</h1>
-            </div>
-            <div class="column is-narrow">
-                <button id="close-login-window" class="delete is-large"></button>
-            </div>
+        <div class="login-header">
+            <h1 class="title login-title">Вход</h1>
+            <button id="close-login-window" class="delete is-large"></button>
         </div>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}

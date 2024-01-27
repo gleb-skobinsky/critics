@@ -592,6 +592,12 @@ body {
     opacity: 1;
   }
 }
+.login-header {
+  display: flex !important;
+}
+.login-title {
+  flex: 1;
+}
 .login-form {
   position: absolute;
   visibility: visible;
@@ -640,6 +646,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 32px;
+  margin-bottom: 24px;
 }
 @media screen and (max-width: 768px) {
   .hide-mobile {

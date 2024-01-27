@@ -224,7 +224,6 @@ html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .disable-scroll-completely {
@@ -237,15 +236,43 @@ html {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
     min-height: 48px;
     border-radius: 16px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #eae7e7;
     border: none;
+    background-size: 24px 24px;
+    background-image: url('/media/icons/ic_search.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-origin: content-box;
 }
 
 .search-field:focus {
     border: none;
+
     outline: none;
+}
+
+.search-click-handler {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    float: right;
+    height: 48px;
+    width: 48px;
+    margin-right: 20%;
+    right: 0;
+    border-radius: 16px;
+    margin-top: 100px;
+}
+
+#search-results {
+    width: 80%;
+    max-width: 1135px;
+    margin-top: 52px;
+    margin-left: auto;
+    margin-right: auto;
 }

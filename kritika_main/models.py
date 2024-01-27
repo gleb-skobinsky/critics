@@ -108,6 +108,13 @@ class Post(models.Model):
     def __str__(self):
         return self.heading
 
+    def to_json(self):
+        return {
+            "heading": str(self.heading),
+            "cover_image": str(self.cover_image),
+            "post_url": f"/articles/{self.pk}/"
+        }
+
 
 class PostImage(models.Model):
     image = models.ImageField(

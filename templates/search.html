@@ -66,6 +66,11 @@
     </div>
 </div>
 <div class="search-container">
-    <input class="search-field">
+    <input id="search-field" class="search-field" placeholder="Поиск по публикациям">
+    <div id="do-search" class="search-click-handler"></div>
+    <div class="columns" id="search-results">
+
+    </div>
 </div>
+<script src="{% static 'search.js' %}" type="text/javascript"></script>
 {% endblock %}

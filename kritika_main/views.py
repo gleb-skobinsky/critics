@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpRequest
+from django.core.paginator import Paginator
+from django.http import HttpRequest, JsonResponse, HttpResponseNotAllowed
 from django.shortcuts import redirect
 from django.shortcuts import render
 
@@ -131,3 +132,21 @@ def manifest(request: HttpRequest):
 
 def search(request: HttpRequest):
     return render(request, "search.html", {})
+
+
+def is_not_empty(string: str):
+    return string is not None and len(string) > 0
+
+
+def search_query(request: HttpRequest):
+    if request.GET:
+        search_results = []
+        search_query_string = request.GET["query"]
+        page = request.GET.get('page', 1)
+        if is_not_empty(search_query_string):
+            searched_posts = Post.objects.filter(heading__icontains=search_query_string).order_by("heading")
+            page = Paginator(searched_posts, 10).page(page)
+            search_results = list(map(lambda post: post.to_json(), page))
+        return JsonResponse(data={"search_results": search_results})
+    else:
+        return HttpResponseNotAllowed(['GET'])

@@ -1,5 +1,6 @@
 from enum import Enum
 
+import django.utils.timezone as django_time
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
@@ -104,6 +105,10 @@ class Post(models.Model):
     user = models.ForeignKey(KritikaUser, on_delete=models.PROTECT)
     topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
     is_main = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    planned_publication_date = models.DateField(null=True, default=None)
 
     def __str__(self):
         return self.heading

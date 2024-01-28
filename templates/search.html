@@ -66,11 +66,49 @@
     </div>
 </div>
 <div class="search-container">
-    <input id="search-field" class="search-field" placeholder="Поиск по публикациям">
+    <input value="{{ query }}" id="search-field" class="search-field" placeholder="Поиск по публикациям">
     <div id="do-search" class="search-click-handler"></div>
-    <div class="columns" id="search-results">
-
+    <div id="search-results">
+        {% for row in search_results %}
+        <div class="columns">
+            {% for result in row %}
+            <div class="column is-one-third is-article-entry">
+                <div class="article-title">
+                    <div class="columns is-vcentered">
+                        <div class="column">
+                            <div class="one-weekly-title">{{ result.heading }}</div>
+                        </div>
+                        <div class="column is-narrow">
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ result.post_url }}" class="imgart-wrapper">
+                    <img class="article-image" src="/media/{{ result.cover_image }}"/>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
+    <nav id="pagination-holder" class="pagination pagination-area {% if num_pages < 2 %} pagination-hidden {% endif %}" role="navigation"
+         aria-label="pagination">
+        <a id="pagination-go-back" class="pagination-previous">Предыдущая</a>
+        <a id="pagination-go-forward" class="pagination-next">Следующая</a>
+        <ul id="pagination-list" class="pagination-list">
+            {% for symbol in pagination_view %}
+                {% if symbol == "..." %}
+                <li>
+                    <span class="pagination-ellipsis">&hellip;</span>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/search/?query={{ query }}&page={{ symbol }}" class="pagination-link {% if symbol == current_page %} is-current {% endif %}" aria-label="Goto page {{ symbol }}">{{ symbol }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
 </div>
 <script src="{% static 'search.js' %}" type="text/javascript"></script>
 {% endblock %}

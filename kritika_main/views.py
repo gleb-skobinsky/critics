@@ -203,7 +203,7 @@ def results_for_page(request: HttpRequest) -> SearchResults:
     page_number = get_page(request)
     if is_not_empty(search_query_string):
         searched_posts = Post.objects.filter(heading__icontains=search_query_string).order_by("heading")
-        paginator = Paginator(searched_posts, 1)
+        paginator = Paginator(searched_posts, 9)
         num_pages = paginator.num_pages
         if page_number > num_pages:
             return SearchResults(

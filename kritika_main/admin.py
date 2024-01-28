@@ -21,9 +21,6 @@ class UserAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = [
         "heading",
-        "full_content",
-        "status",
-        "rating",
         "summary",
         "cover_image",
         "user",

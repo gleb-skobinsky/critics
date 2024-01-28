@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -105,9 +106,7 @@ class Post(models.Model):
     user = models.ForeignKey(KritikaUser, on_delete=models.PROTECT)
     topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
     is_main = models.BooleanField(default=False)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(default=timezone.now)
     planned_publication_date = models.DateField(null=True, default=None)
 
     def __str__(self):

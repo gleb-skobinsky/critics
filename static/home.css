@@ -295,6 +295,12 @@ body {
         line-height: 50px;
     }
 }
+.about-content {
+    font-size: 24px;
+}
+.about-content p {
+    margin-bottom: 30px;
+}
 .weekly-wrapper {
   width: 80%;
   max-width: 1135px;

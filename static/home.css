@@ -216,8 +216,7 @@ body {
 
 .scroll-down-icon {
   position: absolute;
-  margin-left: 50%;
-  margin-right: 50%;
+  justify-self: center;
   top: calc(100vh - 80px);
   cursor: pointer;
 }

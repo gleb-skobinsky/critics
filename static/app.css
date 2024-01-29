@@ -13,6 +13,7 @@ html {
 
 .main-logo-image {
   width: auto;
+  max-width: 60vw;
   max-height: 100px;
 }
 

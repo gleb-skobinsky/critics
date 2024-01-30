@@ -20,7 +20,7 @@ def get_posts_by_topic(topic_name: str):
 
 def home(request: HttpRequest):
     template_name = "homev2.html"
-    posts = Post.objects.filter(status="Published", is_main=False).order_by('-updated_at')
+    posts = Post.objects.filter(status="Published", is_main=False).order_by('-updated_at').distinct()
     try:
         main_post = Post.objects.filter(is_main=True)[0]
     except:

@@ -25,7 +25,8 @@ services:
       - "443:443"
     volumes:
       - static_volume:/home/app/webapp/static
-      - media_volume:/home/app/webapp/mediafiles
+      - media_volume:/home/app/webapp/mediafiles/icons
+      - user_media_volume:/home/app/webapp/mediafiles/user_generated
       - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
       - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
     depends_on:
@@ -52,6 +53,7 @@ services:
 volumes:
   pgdata:
   static_volume:
+  user_media_volume:
   media_volume:
 
 networks:

@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='heading_image',
-            field=models.ImageField(default='headings/default.jpg', upload_to='headings'),
+            field=models.ImageField(default='user_generated/headings/default.jpg', upload_to='user_generated/headings'),
         ),
     ]

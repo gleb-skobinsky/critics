@@ -180,7 +180,7 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-CKEDITOR_UPLOAD_PATH = "post_images/"
+CKEDITOR_UPLOAD_PATH = "user_generated/post_images/"
 
 LOGIN_URL = "login"
 LOGOUT_URL = "logout"

@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(max_length=30)),
                 ('rating', models.IntegerField()),
                 ('summary', models.CharField(max_length=200)),
-                ('cover_image', models.ImageField(upload_to='posts')),
+                ('cover_image', models.ImageField(upload_to='user_generated/posts')),
                 ('topic', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='kritika_main.topic')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
             ],

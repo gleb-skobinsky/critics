@@ -99,9 +99,9 @@ class Post(models.Model):
     status = models.CharField(max_length=30)
     rating = models.IntegerField()
     summary = models.CharField(max_length=200)
-    cover_image = models.ImageField(upload_to="posts")
+    cover_image = models.ImageField(upload_to="user_generated/posts")
     heading_image = models.ImageField(
-        upload_to="headings", default="headings/default.jpg"
+        upload_to="user_generated/headings", default="user_generated/headings/default.jpg"
     )
     user = models.ForeignKey(KritikaUser, on_delete=models.PROTECT)
     topic = models.ForeignKey(Topic, on_delete=models.PROTECT)
@@ -122,7 +122,7 @@ class Post(models.Model):
 
 class PostImage(models.Model):
     image = models.ImageField(
-        upload_to="post_images", default="headings/default.jpg", blank=True
+        upload_to="user_generated/post_images", default="user_generated/headings/default.jpg", blank=True
     )
     image_caption = models.CharField(max_length=300, default="", blank=True)
     post = models.ForeignKey(Post, on_delete=models.PROTECT)

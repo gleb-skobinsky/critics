@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='PostImage',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(blank=True, default='headings/default.jpg', upload_to='post_images')),
+                ('image', models.ImageField(blank=True, default='user_generated/headings/default.jpg', upload_to='user_generated/post_images')),
                 ('image_caption', models.CharField(blank=True, default='', max_length=300)),
                 ('post', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='kritika_main.post')),
             ],

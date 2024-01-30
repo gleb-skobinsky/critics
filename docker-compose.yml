@@ -4,7 +4,8 @@ services:
     volumes:
       - .:/kritika_server
       - static_volume:/home/app/webapp/static
-      - media_volume:/home/app/webapp/mediafiles
+      - media_volume:/home/app/webapp/mediafiles/icons
+      - user_media_volume:/home/app/webapp/mediafiles/user_generated
     depends_on:
       - db
     build: .

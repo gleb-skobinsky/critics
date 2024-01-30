@@ -39,7 +39,7 @@
                         </svg>
                         <a href="/">
                             <div class="main-logo">
-                                <img class="main-logo-image" src="/media/icons/main_logo_navbar.png">
+                                <img class="main-logo-image" src="/media/icons/main_logo_navbar.svg">
                             </div>
                         </a>
                         <div></div>
@@ -107,7 +107,7 @@
     <div class="weekly-wrapper">
         <div class="weekly-articles-title">Последние материалы</div>
         <div class="columns">
-            <div class="column is-6 is-article-entry">
+            <a href="/articles/{{ posts.0.id }}" class="column is-6 is-article-entry">
                 <div class="article-title">
                     <div class="columns is-vcentered">
                         <div class="column">
@@ -118,10 +118,10 @@
                         </div>
                     </div>
                 </div>
-                <a href="/articles/{{ posts.0.id }}" class="imgart-wrapper">
+                <div class="imgart-wrapper">
                     <img class="article-image" src="{{ posts.0.cover_image.url }}"/>
-                </a>
-            </div>
+                </div>
+            </a>
             <div class="column is-6 is-article-entry">
                 <div class="article-title">
                     <div class="columns is-vcentered">

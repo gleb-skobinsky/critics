@@ -459,20 +459,9 @@ body {
   justify-content: center;
   bottom: 0px;
 }
-@media screen and (max-width: 1400px) {
-  .footer-content {
-      max-width: 60%;
-    }
-}
-@media screen and (max-width: 1000px) {
-  .footer-content {
-      max-width: 80%;
-    }
-}
-@media screen and (max-width: 700px) {
-  .footer-content {
-      max-width: 80%;
-    }
+.footer-content {
+    width: 1135px;
+    max-width: 80%;
 }
 
 .critics-copyright {

@@ -78,8 +78,8 @@ def cinema_topic(request: HttpRequest):
     return render(request, "books.html", {"posts": posts})
 
 
-def theatre_topic(request: HttpRequest):
-    posts = get_posts_by_topic("Театр")
+def interviews_topic(request: HttpRequest):
+    posts = get_posts_by_topic("Интервью")
     return render(request, "books.html", {"posts": posts})
 
 

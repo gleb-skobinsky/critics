@@ -19,8 +19,7 @@ def get_posts_by_topic(topic_name: str):
 
 
 def home(request: HttpRequest):
-    template_name = "homev2.html"
-    posts = Post.objects.filter(status="Published", is_main=False).order_by('-updated_at').distinct()
+    posts = Post.objects.filter(status="Published", is_main=False).order_by('-updated_at').distinct()[:4]
     try:
         main_post = Post.objects.filter(is_main=True)[0]
     except:
@@ -28,7 +27,7 @@ def home(request: HttpRequest):
     form = CustomAuthForm()
 
     return render(
-        request, template_name, {"posts": posts, "main_post": main_post, "form": form}
+        request=request, template_name="homev2.html", context={"posts": posts, "main_post": main_post, "form": form}
     )
 
 

@@ -653,7 +653,7 @@ body {
 }
 @media screen and (min-width: 1135px) {
   .hide-desktop {
-    visibility: hidden;
+    display: none;
     width: 0px;
   }
 }

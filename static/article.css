@@ -30,7 +30,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 1.2rem;
+  line-height: 42px;
   padding-left: 60px;
   padding-right: 60px;
 }
@@ -39,6 +39,7 @@
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
     .article-heading {
         font-size: 52px;
+        line-height: 62px;
     }
 }
 
@@ -46,6 +47,7 @@
 @media only screen and (min-width: 1025px) {
     .article-heading {
         font-size: 64px;
+        line-height: 75px;
     }
 }
 

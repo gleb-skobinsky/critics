@@ -655,6 +655,12 @@ body {
     width: 0px;
   }
 }
+@media screen and (min-width: 1135px) {
+  .invisible-desktop {
+    visibility: hidden;
+    width: 0px;
+  }
+}
 @media screen and (max-width: 1135px) {
   .is-mobile-fullwidth {
     max-width: 100vw;

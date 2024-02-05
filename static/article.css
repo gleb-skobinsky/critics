@@ -29,11 +29,28 @@
   font-family: "Playfair Display";
   font-style: normal;
   font-weight: 700;
-  font-size: 56px;
-  line-height: 75px;
+  font-size: 32px;
+  line-height: 42px;
   padding-left: 60px;
   padding-right: 60px;
 }
+
+/* Font size for tablets (600px to 1024px) */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    .article-heading {
+        font-size: 52px;
+        line-height: 62px;
+    }
+}
+
+/* Font size for desktop screens (1025px and above) */
+@media only screen and (min-width: 1025px) {
+    .article-heading {
+        font-size: 64px;
+        line-height: 75px;
+    }
+}
+
 .article-heading-wrapper {
   float: left;
   position: absolute;

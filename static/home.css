@@ -155,9 +155,7 @@ body {
   line-height: 1.2em;
   text-align: center;
   color: #ffffff;
-  word-wrap: normal;
   max-width: 100%;
-  overflow: hidden;        /* Hide overflowing content */
 }
 @media screen and (max-width: 650px) {
   .main-article-header {

@@ -66,23 +66,23 @@
     <a href="/interviews/">Интервью</a>
     <a href="/games/">Игры</a>
     <a href="/exhibitions/">Выставки</a>
-    <a href="/manifest/" class="is-hidden-desktop">
+    <a href="/manifest/" class="hide-desktop">
         <img src="/media/icons/about_wrapper.svg"/>
     </a>
     {% if user.is_authenticated %}
     <a
             href="/user_account"
             id="account-button"
-            class="is-login is-hidden-desktop"
+            class="is-login hide-desktop"
     >
         <img src="/media/icons/lk_button.svg"/>
     </a>
     {% else %}
-    <div class="is-login is-hidden-desktop drawer-btn" name="login-button">
+    <div class="is-login hide-desktop drawer-btn" name="login-button">
         <img src="/media/icons/login.svg"/>
     </div>
     {% endif %}
-    <div class="is-hidden-desktop is-clickable drawer-btn">
+    <div class="hide-desktop is-clickable drawer-btn">
         <img src="/media/icons/search.svg" name="search-button"/>
     </div>
 </div>

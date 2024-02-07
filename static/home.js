@@ -38,7 +38,7 @@ function disableScroll() {
 }
 
 function closeNav() {
-  document.getElementById("main-drawer").style.width = "0";
+  document.getElementById("main-drawer").style.width = "1px";
   enableScroll();
 }
 

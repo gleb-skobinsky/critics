@@ -354,6 +354,7 @@ _::-webkit-full-page-media, _:future, :root .main-article-border {
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
+  min-height: 2em;
   color: #ffffff;
 }
 .imgart-wrapper {

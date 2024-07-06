@@ -5,3 +5,4 @@ config.yaml
 staticfiles_build/
 /db.sqlite3
 /media/
+__pycache__

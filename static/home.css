@@ -60,6 +60,7 @@ body {
   height: 40px;
 }
 .main-navbar {
+  height: 75px;
   width: 80vw;
   max-width: 1135px;
   margin: auto;
@@ -105,13 +106,8 @@ body {
 }
 .main-article-title-background {
   height: auto;
-  padding-top: 8vh;
-  padding-left: 10vw;
-  padding-right: 10vw;
-  padding-bottom: 10vh;
   width: 70vw;
   max-width: 1135px;
-  max-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -120,13 +116,23 @@ body {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-.main-article-title-background::before {
-  content: "";
+.header-and-subheader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
+}
+.main-article-border {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 70vw;
+  max-width: 1135px;
+  justify-self: center;
   border-radius: 15px;
   border: 3px solid transparent;
   backdrop-filter: blur(5px);
@@ -142,6 +148,36 @@ body {
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
+.safari-specific {
+    display: none;
+}
+_::-webkit-full-page-media, _:future, :root .safari-specific {
+  display: flex !important;
+  height: calc(100% - 8vh - 75px) !important;
+  position: absolute;
+  left: inherit;
+  width: 70vw;
+  height: auto;
+  max-width: 1135px;
+  justify-self: center;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  backdrop-filter: blur(5px);
+  background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.356),
+      rgba(255, 255, 255, 0.034),
+      rgba(255, 226, 206, 0.26)
+    )
+    border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+_::-webkit-full-page-media, _:future, :root .main-article-border {
+    display: none !important;
+}
 .top-of-page {
   display: flex;
   justify-content: center;
@@ -156,9 +192,7 @@ body {
   line-height: 1.2em;
   text-align: center;
   color: #ffffff;
-  word-wrap: break-word;
   max-width: 100%;
-  overflow: hidden;        /* Hide overflowing content */
 }
 @media screen and (max-width: 650px) {
   .main-article-header {
@@ -320,6 +354,7 @@ body {
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
+  min-height: 2em;
   color: #ffffff;
 }
 .imgart-wrapper {
@@ -350,10 +385,10 @@ body {
   float: left;
   position: absolute;
   bottom: 30px;
-  z-index: 1000;
+  z-index: 100;
   padding: 5px;
   color: #ffffff;
-  max-width: 90%;
+  width: 90%;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -668,7 +703,6 @@ body {
   }
 }
 .is-noisy {
-  /* ... */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   filter: contrast(100%) brightness(100%);
